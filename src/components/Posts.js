@@ -1,77 +1,29 @@
+import Post from './Post';
+
 export default function Posts() {
+    const posts = [
+        {
+            nomeUsuario: "meowed",
+            nomeConteudo: "gato-telefone",
+            nomeCurtidas: "respondeai",
+            quantidadeCurtidas: 101.523
+        },
+        {
+            nomeUsuario: "barked",
+            nomeConteudo: "dog",
+            nomeCurtidas: "adorable_animals",
+            quantidadeCurtidas: 99.159
+        }
+    ];
+
     return (
         <div className="posts">
-            <div className="post">
-                <div className="topo">
-                    <div className="usuario">
-                        <img alt="" src="assets/img/meowed.svg" />
-                        meowed
-                    </div>
-                    <div className="acoes">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
-                    </div>
-                </div>
-
-                <div className="conteudo">
-                    <img alt="" src="assets/img/gato-telefone.svg" />
-                </div>
-
-                <div className="fundo">
-                    <div className="acoes">
-                        <div>
-                            <ion-icon name="heart-outline"></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <div>
-                            <ion-icon name="bookmark-outline"></ion-icon>
-                        </div>
-                    </div>
-
-                    <div className="curtidas">
-                        <img alt="" src="assets/img/respondeai.svg" />
-                        <div className="texto">
-                            Curtido por <strong>respondeai</strong> e <strong>outras 101.523 pessoas</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="post">
-                <div className="topo">
-                    <div className="usuario">
-                        <img alt="" src="assets/img/barked.svg" />
-                        barked
-                    </div>
-                    <div className="acoes">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
-                    </div>
-                </div>
-
-                <div className="conteudo">
-                    <img alt="" src="assets/img/dog.svg" />
-                </div>
-
-                <div className="fundo">
-                    <div className="acoes">
-                        <div>
-                            <ion-icon name="heart-outline"></ion-icon>
-                            <ion-icon name="chatbubble-outline"></ion-icon>
-                            <ion-icon name="paper-plane-outline"></ion-icon>
-                        </div>
-                        <div>
-                            <ion-icon name="bookmark-outline"></ion-icon>
-                        </div>
-                    </div>
-
-                    <div className="curtidas">
-                        <img alt="" src="assets/img/adorable_animals.svg" />
-                        <div className="texto">
-                            Curtido por <strong>adorable_animals</strong> e <strong>outras 99.159 pessoas</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {posts.map((post) => <Post
+                nomeUsuario={post.nomeUsuario}
+                nomeConteudo={post.nomeConteudo}
+                nomeCurtidas={post.nomeCurtidas}
+                quantidadeCurtidas={post.quantidadeCurtidas}
+            />)}
         </div>
     );
 }
