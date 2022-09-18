@@ -1,7 +1,9 @@
 import React from 'react';
 
 export default function Post(props) {
-    const [tipo, setTipo] = React.useState("-outline");
+    const [tipoIconeSalvar, setTipoIconeSalvar] = React.useState("-outline");
+    const [tipoCorIconeLike, setTipoCorIconeLike] = React.useState("-outline");
+    const [quantidadeCurtidas, setQuantidadeCurtidas] = React.useState(props.quantidadeCurtidas);
 
     return (
         <div className="post">
@@ -22,19 +24,25 @@ export default function Post(props) {
             <div className="fundo">
                 <div className="acoes">
                     <div>
-                        <ion-icon name="heart-outline"></ion-icon>
+                        <ion-icon name={`heart${tipoCorIconeLike}`} onClick={
+                            () => {
+                                tipoCorIconeLike === "-outline" ? setTipoCorIconeLike("") : setTipoCorIconeLike("-outline");
+                                tipoCorIconeLike === "-outline" ? setQuantidadeCurtidas(quantidadeCurtidas + 1) : setQuantidadeCurtidas(quantidadeCurtidas - 1)
+                            }
+                        }>
+                        </ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name={`bookmark${tipo}`}  onClick={() => setTipo("")}></ion-icon>
+                        <ion-icon name={`bookmark${tipoIconeSalvar}`} onClick={() => setTipoIconeSalvar("")}></ion-icon>
                     </div>
                 </div>
 
                 <div className="curtidas">
                     <img alt={`Foto de ${props.nomeCurtidas}`} src={`assets/img/${props.nomeCurtidas}.svg`} />
                     <div className="texto">
-                        Curtido por <strong>{props.nomeCurtidas}</strong> e <strong>outras {props.quantidadeCurtidas} pessoas</strong>
+                        Curtido por <strong>{props.nomeCurtidas}</strong> e <strong>outras {quantidadeCurtidas} pessoas</strong>
                     </div>
                 </div>
             </div>

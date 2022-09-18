@@ -6,13 +6,13 @@ export default function Posts() {
             nomeUsuario: "meowed",
             nomeConteudo: "gato-telefone",
             nomeCurtidas: "respondeai",
-            quantidadeCurtidas: 101.523
+            quantidadeCurtidas: 101523
         },
         {
             nomeUsuario: "barked",
             nomeConteudo: "dog",
             nomeCurtidas: "adorable_animals",
-            quantidadeCurtidas: 99.159
+            quantidadeCurtidas: 99159
         }
     ];
 
