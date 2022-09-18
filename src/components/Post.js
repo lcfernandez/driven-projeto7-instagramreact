@@ -1,4 +1,8 @@
+import React from 'react';
+
 export default function Post(props) {
+    const [tipo, setTipo] = React.useState("-outline");
+
     return (
         <div className="post">
             <div className="topo">
@@ -23,7 +27,7 @@ export default function Post(props) {
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name="bookmark-outline"></ion-icon>
+                        <ion-icon name={`bookmark${tipo}`}  onClick={() => setTipo("")}></ion-icon>
                     </div>
                 </div>
 
