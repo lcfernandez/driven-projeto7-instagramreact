@@ -4,6 +4,7 @@ export default function Post(props) {
     const [tipoIconeSalvar, setTipoIconeSalvar] = React.useState("-outline");
     const [tipoCorIconeLike, setTipoCorIconeLike] = React.useState("-outline");
     const [quantidadeCurtidas, setQuantidadeCurtidas] = React.useState(props.quantidadeCurtidas);
+    const [corIcone, setCorIcone] = React.useState("regular");
 
     return (
         <div className="post">
@@ -26,9 +27,19 @@ export default function Post(props) {
                     <div>
                         <ion-icon name={`heart${tipoCorIconeLike}`} onClick={
                             () => {
-                                tipoCorIconeLike === "-outline" ? setTipoCorIconeLike("") : setTipoCorIconeLike("-outline");
-                                tipoCorIconeLike === "-outline" ? setQuantidadeCurtidas(quantidadeCurtidas + 1) : setQuantidadeCurtidas(quantidadeCurtidas - 1)
+                                if (tipoCorIconeLike === "-outline") {
+                                    setTipoCorIconeLike("");
+                                    setQuantidadeCurtidas(quantidadeCurtidas + 1);
+                                    setCorIcone("curtido");
+                                } else {
+                                    setTipoCorIconeLike("-outline");
+                                    setQuantidadeCurtidas(quantidadeCurtidas - 1);
+                                    setCorIcone("regular");
+                                }
                             }
+                        }
+                        class={
+                            corIcone
                         }>
                         </ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
