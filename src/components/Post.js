@@ -55,7 +55,7 @@ export default function Post(props) {
                 <div className="curtidas">
                     <img alt={`Foto de ${props.nomeCurtidas}`} src={`assets/img/${props.nomeCurtidas}.svg`} />
                     <div className="texto">
-                        Curtido por <strong>{props.nomeCurtidas}</strong> e <strong>outras {quantidadeCurtidas} pessoas</strong>
+                        Curtido por <strong>{props.nomeCurtidas}</strong> e <strong>outras {quantidadeCurtidas.toLocaleString('pt-BR')} pessoas</strong>
                     </div>
                 </div>
             </div>
