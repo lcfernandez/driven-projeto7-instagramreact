@@ -23,6 +23,7 @@ export default function Posts() {
                 nomeConteudo={post.nomeConteudo}
                 nomeCurtidas={post.nomeCurtidas}
                 quantidadeCurtidas={post.quantidadeCurtidas}
+                key={post.nomeUsuario}
             />)}
         </div>
     );

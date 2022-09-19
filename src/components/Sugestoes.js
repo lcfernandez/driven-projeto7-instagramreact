@@ -34,6 +34,7 @@ export default function Sugestoes() {
             {sugestoes.map((sugestao) => <Sugestao
                 nome={sugestao.nome}
                 razao={sugestao.razao}
+                key={sugestao.nome}
             />)}
         </div>
     );
