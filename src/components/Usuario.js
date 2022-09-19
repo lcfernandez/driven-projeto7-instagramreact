@@ -22,12 +22,12 @@ export default function Usuario() {
             <img alt="Foto de catanacomics" src={imagem} onClick={
                 () => {
                     let novaImagem;
-                    do {
-                        novaImagem = prompt("Qual é o link para sua nova imagem de perfil? (use 'http:' ou 'https:')")
-                    } while (
-                        !validateURL(novaImagem)
-                    );
-                    setImagem(novaImagem)
+                    
+                    novaImagem = prompt("Qual é o link para sua nova imagem de perfil? (use 'http:' ou 'https:')");
+                    
+                    if (validateURL(novaImagem)) {
+                        setImagem(novaImagem);
+                    }
                 }
             }/>
             <div className="texto">
@@ -37,12 +37,12 @@ export default function Usuario() {
                     <ion-icon name="pencil" onClick={
                         () => {
                             let novoNome;
-                            do {
-                                novoNome = prompt("Qual será o seu novo nome de usuário?")
-                            } while (
-                                novoNome === null || !novoNome.trim() // verificação se não há apenas espaços em branco
-                            );
-                            setNome(novoNome)
+                            
+                            novoNome = prompt("Qual será o seu novo nome de usuário?");
+                            
+                            if (!(novoNome === null || !novoNome.trim())) {
+                                setNome(novoNome);
+                            }
                         }
                     }>
                     </ion-icon>
