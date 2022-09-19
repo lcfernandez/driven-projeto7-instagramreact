@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function Usuario() {
+    // função para validação do formato das URL fornecidas
     const validateURL = (url) => {
         let test;
     
@@ -36,7 +37,11 @@ export default function Usuario() {
                     <ion-icon name="pencil" onClick={
                         () => {
                             let novoNome;
-                            do {novoNome = prompt("Qual será o seu novo nome de usuário?")} while (novoNome === null || !novoNome.trim());
+                            do {
+                                novoNome = prompt("Qual será o seu novo nome de usuário?")
+                            } while (
+                                novoNome === null || !novoNome.trim() // verificação se não há apenas espaços em branco
+                            );
                             setNome(novoNome)
                         }
                     }>

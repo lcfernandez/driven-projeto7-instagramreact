@@ -34,7 +34,7 @@ export default function Sugestoes() {
             {sugestoes.map((sugestao) => <Sugestao
                 nome={sugestao.nome}
                 razao={sugestao.razao}
-                key={sugestao.nome}
+                key={sugestao.nome} // chave única para todo componente que esteja dentro de uma lista
             />)}
         </div>
     );

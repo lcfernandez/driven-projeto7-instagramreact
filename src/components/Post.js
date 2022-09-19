@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default function Post(props) {
+    // função chamada ao clicar nos posts ou no botão de curtir
     const likePost = () => {
         setTipoCorIconeLike("");
         setCorIcone("curtido");
