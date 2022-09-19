@@ -1,6 +1,14 @@
 import React from 'react';
 
 export default function Post(props) {
+    const likePost = () => {
+        setTipoCorIconeLike("");
+        setCorIcone("curtido");
+        if (tipoCorIconeLike === "-outline") {
+            setQuantidadeCurtidas(quantidadeCurtidas + 1);
+        }
+    }
+
     const [tipoIconeSalvar, setTipoIconeSalvar] = React.useState("-outline");
     const [tipoCorIconeLike, setTipoCorIconeLike] = React.useState("-outline");
     const [quantidadeCurtidas, setQuantidadeCurtidas] = React.useState(props.quantidadeCurtidas);
@@ -19,29 +27,19 @@ export default function Post(props) {
             </div>
 
             <div className="conteudo">
-                <img alt={`Post de ${props.nomeUsuario}`} src={`assets/img/${props.nomeConteudo}.svg`} />
+                <img alt={`Post de ${props.nomeUsuario}`} src={`assets/img/${props.nomeConteudo}.svg`} onClick={likePost} />
             </div>
 
             <div className="fundo">
                 <div className="acoes">
                     <div>
-                        <ion-icon name={`heart${tipoCorIconeLike}`} onClick={
+                        <ion-icon name={`heart${tipoCorIconeLike}`} onClick={tipoCorIconeLike === "-outline" ? likePost : 
                             () => {
-                                if (tipoCorIconeLike === "-outline") {
-                                    setTipoCorIconeLike("");
-                                    setQuantidadeCurtidas(quantidadeCurtidas + 1);
-                                    setCorIcone("curtido");
-                                } else {
-                                    setTipoCorIconeLike("-outline");
-                                    setQuantidadeCurtidas(quantidadeCurtidas - 1);
-                                    setCorIcone("");
-                                }
+                                setTipoCorIconeLike("-outline");
+                                setQuantidadeCurtidas(quantidadeCurtidas - 1);
+                                setCorIcone("");
                             }
-                        }
-                        class={
-                            corIcone
-                        }>
-                        </ion-icon>
+                        } class={corIcone}></ion-icon>
                         <ion-icon name="chatbubble-outline"></ion-icon>
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
