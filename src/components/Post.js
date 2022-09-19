@@ -4,7 +4,7 @@ export default function Post(props) {
     const [tipoIconeSalvar, setTipoIconeSalvar] = React.useState("-outline");
     const [tipoCorIconeLike, setTipoCorIconeLike] = React.useState("-outline");
     const [quantidadeCurtidas, setQuantidadeCurtidas] = React.useState(props.quantidadeCurtidas);
-    const [corIcone, setCorIcone] = React.useState("regular");
+    const [corIcone, setCorIcone] = React.useState("");
 
     return (
         <div className="post">
@@ -34,7 +34,7 @@ export default function Post(props) {
                                 } else {
                                     setTipoCorIconeLike("-outline");
                                     setQuantidadeCurtidas(quantidadeCurtidas - 1);
-                                    setCorIcone("regular");
+                                    setCorIcone("");
                                 }
                             }
                         }
