@@ -35,7 +35,9 @@ export default function Post(props) {
                         <ion-icon name="paper-plane-outline"></ion-icon>
                     </div>
                     <div>
-                        <ion-icon name={`bookmark${tipoIconeSalvar}`} onClick={() => setTipoIconeSalvar("")}></ion-icon>
+                        <ion-icon name={`bookmark${tipoIconeSalvar}`} onClick={
+                            () => tipoIconeSalvar === "-outline" ? setTipoIconeSalvar("") : setTipoIconeSalvar("-outline")
+                        }></ion-icon>
                     </div>
                 </div>
 
